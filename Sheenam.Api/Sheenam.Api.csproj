@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Contollers\**" />
+    <Content Remove="Contollers\**" />
+    <EmbeddedResource Remove="Contollers\**" />
+    <None Remove="Contollers\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="RESTFulSense" Version="2.9.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+</Project>

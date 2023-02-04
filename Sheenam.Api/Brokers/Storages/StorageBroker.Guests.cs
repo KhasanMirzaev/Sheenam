@@ -1,7 +1,7 @@
 ﻿//=================================================
 //Copyright (c) Coalition of Good-Hearted Engineers
-//Free to Use Comfort and Peace
-//=================================================namespace Sheenam.Api.Brokers.Storages
+//Free to Use To Find Comfort and Peace
+//=================================================
 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;

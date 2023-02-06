@@ -10,7 +10,7 @@ using Moq;
 using Sheenam.Api.Models.Foundations.Guests;
 using Xunit;
 
-namespace Sheenam.Api.Tests.Foundations.Guests
+namespace Sheenam.Api.Tests.Unit.Services.Foundations.Guests
 {
     public partial class GuestServiceTests
     {

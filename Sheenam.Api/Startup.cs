@@ -37,7 +37,6 @@ namespace Sheenam.Api
             services.AddTransient<IStorageBroker, StorageBroker>();
             services.AddTransient<ILoggingBroker, LoggingBroker>();
 
-
             services.AddSwaggerGen(options =>
             {
                 options.SwaggerDoc(

@@ -17,6 +17,7 @@ namespace Sheenam.Api.Tests.Unit.Services.Foundations.Guests
             //given
             Guest nullGuest = null;
             var nullGuestException = new NullGuestException();
+
             var exceptedGuestValidationException = 
                 new GuestValidationException(nullGuestException);
 
@@ -26,7 +27,7 @@ namespace Sheenam.Api.Tests.Unit.Services.Foundations.Guests
 
             //then
             await Assert.ThrowsAsync<GuestValidationException>(() =>
-            addGuestTask.AsTask());
+                addGuestTask.AsTask());
         }
     }
 }

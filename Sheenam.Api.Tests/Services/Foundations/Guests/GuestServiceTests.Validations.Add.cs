@@ -50,7 +50,7 @@ namespace Sheenam.Api.Tests.Unit.Services.Foundations.Guests
             string invalidText)
         {
             //given
-            Guest invalidGuest = new Guest
+            var invalidGuest = new Guest
             {
                 FirstName = invalidText
             };

@@ -3,7 +3,6 @@
 //Free to Use To Find Comfort and Peace
 //=================================================
 
-
 using System;
 using Microsoft.Extensions.Logging;
 
@@ -11,9 +10,9 @@ namespace Sheenam.Api.Brokers.Loggings
 {
     public class LoggingBroker : ILoggingBroker
     {
-        private readonly ILogger logger;
+        private readonly ILogger<LoggingBroker> logger;
 
-        public LoggingBroker(ILogger logger) =>
+        public LoggingBroker(ILogger<LoggingBroker> logger) =>
             this.logger = logger;
 
         public void LogError(Exception exception) =>

@@ -53,40 +53,39 @@ namespace Sheenam.Api.Services.Foundations.Guests
             }
         }
 
-        private GuestValidationException CreateAndLogValidationException(Xeption xeption)
+        private GuestValidationException CreateAndLogValidationException(Xeption exception)
         {
             var guestValidationException =
-                    new GuestValidationException(xeption);
+                    new GuestValidationException(exception);
 
             this.loggingBroker.LogError(guestValidationException);
 
             return guestValidationException;
         }
 
-        private GuestDependencyException CreateAndLogCriticalDependencyException(Xeption xeption)
+        private GuestDependencyException CreateAndLogCriticalDependencyException(Xeption exception)
         {
             var guestDependencyException =
-                new GuestDependencyException(xeption);
+                new GuestDependencyException(exception);
 
             this.loggingBroker.LogCritical(guestDependencyException);
 
             return guestDependencyException;
         }
 
-        private GuestDependencyValidationException CreateAndLogDependencyValidationException(Xeption xeption)
+        private GuestDependencyValidationException CreateAndLogDependencyValidationException(Xeption exception)
         {
             var guestDependencyValidationException =
-                new GuestDependencyValidationException(xeption);
+                new GuestDependencyValidationException(exception);
 
             this.loggingBroker.LogError(guestDependencyValidationException);
 
             return guestDependencyValidationException;
         }
 
-        private GuestServiceException CreateAndLogServiceException(Xeption xeption)
+        private GuestServiceException CreateAndLogServiceException(Xeption exception)
         {
-            var guestServiceException = new GuestServiceException(xeption);
-
+            var guestServiceException = new GuestServiceException(exception);
             this.loggingBroker.LogError(guestServiceException);
 
             return guestServiceException;

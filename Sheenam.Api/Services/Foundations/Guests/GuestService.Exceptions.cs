@@ -4,6 +4,7 @@
 //=================================================
 
 using System.Threading.Tasks;
+using EFxceptions.Models.Exceptions;
 using Microsoft.Data.SqlClient;
 using Sheenam.Api.Models.Foundations.Guests;
 using Sheenam.Api.Models.Foundations.Guests.Exceptions;
@@ -33,8 +34,15 @@ namespace Sheenam.Api.Services.Foundations.Guests
             {
                 var failedGuestStorageException = new FailedGuestStorageException(sqlException);
 
-                throw CreateAndLogCriticalException(failedGuestStorageException);
+                throw CreateAndLogCriticalDependencyException(failedGuestStorageException);
             }
+            //catch(DuplicateKeyException duplicateKeyException)
+            //{
+            //    var alreadyExistGuestException = 
+            //        new AlreadyExistGuestException(duplicateKeyException);
+
+            //    throw CreateAndLogDependencyValidationException(alreadyExistGuestException);
+            //}
         }
 
         private GuestValidationException CreateAndLogValidationException(Xeption xeption)
@@ -47,14 +55,24 @@ namespace Sheenam.Api.Services.Foundations.Guests
             return guestValidationException;
         }
 
-        private GuestDependencyException CreateAndLogCriticalException(Xeption xeption)
+        private GuestDependencyException CreateAndLogCriticalDependencyException(Xeption xeption)
         {
-            GuestDependencyException guestDependencyException =
+            var guestDependencyException =
                 new GuestDependencyException(xeption);
 
             this.loggingBroker.LogCritical(guestDependencyException);
 
             return guestDependencyException;
         }
+
+        //private GuestDependencyValidationException CreateAndLogDependencyValidationException(Xeption xeption)
+        //{
+        //    var guestDependencyValidationException =
+        //        new GuestDependencyValidationException(xeption);
+
+        //    this.loggingBroker.LogError(guestDependencyValidationException);
+
+        //    return guestDependencyValidationException;
+        //}
     }
 }

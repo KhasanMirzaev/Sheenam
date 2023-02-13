@@ -57,11 +57,11 @@ namespace Sheenam.Api.Services.Foundations.Guests
             Message = "Value is invalid"
         };
 
-        private static void Validate(params (dynamic Rule,string Parameter)[] validations)
+        private static void Validate(params (dynamic Rule, string Parameter)[] validations)
         {
             var invalidGuestException = new InvalidGuestException();
 
-            foreach((dynamic rule, string parameter) in validations)
+            foreach ((dynamic rule, string parameter) in validations)
             {
                 if (rule.Condition)
                 {

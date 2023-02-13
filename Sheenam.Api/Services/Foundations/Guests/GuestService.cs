@@ -3,11 +3,10 @@
 //Free to Use To Find Comfort and Peace
 //=================================================
 
+using System.Threading.Tasks;
 using Sheenam.Api.Brokers.Loggings;
 using Sheenam.Api.Brokers.Storages;
 using Sheenam.Api.Models.Foundations.Guests;
-using Sheenam.Api.Models.Foundations.Guests.Exceptions;
-using System.Threading.Tasks;
 
 namespace Sheenam.Api.Services.Foundations.Guests
 {
@@ -17,7 +16,7 @@ namespace Sheenam.Api.Services.Foundations.Guests
         private readonly ILoggingBroker loggingBroker;
 
         public GuestService(
-            IStorageBroker storageBroker, 
+            IStorageBroker storageBroker,
             ILoggingBroker loggingBroker)
         {
             this.storageBroker = storageBroker;
@@ -31,5 +30,5 @@ namespace Sheenam.Api.Services.Foundations.Guests
 
             return await this.storageBroker.InsertGuestAsync(guest);
         });
-     }
+    }
 }

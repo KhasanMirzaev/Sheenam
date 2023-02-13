@@ -19,7 +19,7 @@ namespace Sheenam.Api.Tests.Unit.Services.Foundations.Guests
             Guest nullGuest = null;
             var nullGuestException = new NullGuestException();
 
-            var exceptedGuestValidationException = 
+            var exceptedGuestValidationException =
                 new GuestValidationException(nullGuestException);
 
             //when
@@ -35,9 +35,9 @@ namespace Sheenam.Api.Tests.Unit.Services.Foundations.Guests
                     Times.Once);
 
             this.storageBrokerMock.Verify(broker =>
-                broker.InsertGuestAsync(It.IsAny<Guest>()), 
+                broker.InsertGuestAsync(It.IsAny<Guest>()),
                     Times.Never);
-        
+
             this.loggingBrokerMock.VerifyNoOtherCalls();
             this.storageBrokerMock.VerifyNoOtherCalls();
         }
@@ -81,11 +81,11 @@ namespace Sheenam.Api.Tests.Unit.Services.Foundations.Guests
                 key: nameof(Guest.Address),
                 values: "Text is required");
 
-            var expectedGuestValidationException = 
+            var expectedGuestValidationException =
                 new GuestValidationException(invalidGuestException);
 
             //when
-            ValueTask<Guest> addGuestTask 
+            ValueTask<Guest> addGuestTask
                 = this.guestService.AddGuestAsync(invalidGuest);
 
             //then
@@ -122,7 +122,7 @@ namespace Sheenam.Api.Tests.Unit.Services.Foundations.Guests
                 new GuestValidationException(invalidGuestException);
 
             //when
-            ValueTask<Guest> addGuestTask = 
+            ValueTask<Guest> addGuestTask =
                 this.guestService.AddGuestAsync(invalidGuest);
 
             //then
@@ -135,7 +135,7 @@ namespace Sheenam.Api.Tests.Unit.Services.Foundations.Guests
                         Times.Once);
 
             this.storageBrokerMock.Verify(broker =>
-                broker.InsertGuestAsync(It.IsAny<Guest>()), 
+                broker.InsertGuestAsync(It.IsAny<Guest>()),
                     Times.Never);
 
             this.loggingBrokerMock.VerifyNoOtherCalls();
